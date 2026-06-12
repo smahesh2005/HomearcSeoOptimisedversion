@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Force HTTPS and preferred host
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^ https://homearc-house-services.vercel.app%{REQUEST_URI} [L,R=301]
+
+# Serve custom 404
+ErrorDocument 404 /404.html
+
+# Redirect some legacy paths (example)
+# Redirect 301 /old-path https://homearc-house-services.vercel.app/new-path

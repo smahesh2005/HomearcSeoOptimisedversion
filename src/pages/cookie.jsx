@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SEO from '../components/SEO';
 
 const Cookie = () => {
   const [preferences, setPreferences] = useState({
@@ -19,6 +20,7 @@ const Cookie = () => {
 
   return (
     <div className="container fade-in" style={{ padding: '8rem 2rem', maxWidth: '1200px', margin: '0 auto' }}>
+      <SEO title="Cookie Policy — Homearc" description="Learn how HomeArc uses cookies and how to manage cookie preferences." robots="noindex, nofollow" canonical="https://homearc-house-services.vercel.app/cookie" />
       <h1 style={{ marginBottom: '2rem', color: 'var(--secondary)' }}>Cookie Policy</h1>
       
       <p style={{ color: 'var(--text-muted)', lineHeight: '1.8', marginBottom: '2rem' }}>

@@ -1,0 +1,23 @@
+server {
+  listen 80;
+  server_name homearc-house-services.vercel.app www.homearc-house-services.vercel.app;
+  return 301 https://homearc-house-services.vercel.app$request_uri;
+}
+
+server {
+  listen 443 ssl;
+  server_name homearc-house-services.vercel.app;
+
+  ssl_certificate /path/to/fullchain.pem;
+  ssl_certificate_key /path/to/privkey.pem;
+
+  root /var/www/homearc-house-services/dist;
+  index index.html;
+
+  location / {
+    try_files $uri $uri/ /index.html;
+  }
+
+  error_page 404 /404.html;
+  location = /404.html { internal; }
+}

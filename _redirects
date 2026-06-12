@@ -1,0 +1,7 @@
+/    https://homearc-house-services.vercel.app/: https://homearc-house-services.vercel.app/ 301
+# Netlify style redirects - redirect www and force HTTPS
+https://www.homearc-house-services.vercel.app/* https://homearc-house-services.vercel.app/:splat 301!
+http://homearc-house-services.vercel.app/* https://homearc-house-services.vercel.app/:splat 301!
+
+# Custom 404 handled by /404.html
+/*    /404.html   404

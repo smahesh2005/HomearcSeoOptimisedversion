@@ -7,6 +7,9 @@ import './services.css';
 const Services = () => {
   return (
     <div className="services-page container fade-in" style={{ padding: '2rem 1rem' }}>
+      <p style={{ maxWidth: '900px', margin: '0 auto 1.2rem', color: 'var(--text-muted)', lineHeight: 1.8 }}>
+        HomeArc offers a comprehensive range of professional home services across plumbing, electrical, AC repair, painting, carpentry, cleaning, renovation and pest control. Each service is delivered by certified, background-checked experts with transparent pricing and a 30-day satisfaction guarantee.
+      </p>
       <SEO
         title="Services — Homearc: Plumbing, Electrical, AC, Painting & More"
         description="Explore HomeArc's professional services: plumbing, electrical, AC repair, painting, carpentry, cleaning, renovation and pest control. Book verified experts today."

@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom';
 const Experts = () => {
   return (
     <div className="experts-page container fade-in" style={{ padding: '2rem 1rem' }}>
+      <p style={{ maxWidth: '900px', margin: '0 auto 1.2rem', color: 'var(--text-muted)', lineHeight: 1.8 }}>
+        Meet HomeArc's network of certified home service professionals. Our experts specialize in plumbing, electrical work, AC servicing, painting, carpentry and more — all background-checked and insured to ensure safe, reliable service at your doorstep.
+      </p>
       <SEO
         title="Experts — Meet Our 100% Verified Home Service Professionals"
         description="Meet HomeArc's certified and background-checked home service experts. Find professionals for plumbing, electrical, AC, painting, carpentry and more."
