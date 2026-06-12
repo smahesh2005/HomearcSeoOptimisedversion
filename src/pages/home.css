@@ -1,0 +1,816 @@
+.home-page {
+  padding-bottom: 100px;
+  min-height: 100vh;
+}
+
+/* Hero Section - LEFT MOST ALIGNED */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding: 20px 0 60px;
+  background-color: #f0f7fc;
+  background-image: radial-gradient(rgba(10, 29, 55, 0.15) 1.5px, transparent 1.5px);
+  background-size: 32px 32px;
+}
+
+/* Override container for left-most alignment */
+.hero .container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  max-width: 100%;
+  margin: 0;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 4rem;
+  padding-left: 2rem;  /* Small gap from edge - change to 0 for completely flush */
+  padding-right: 4rem;
+}
+
+.hero-content {
+  text-align: left;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.hero-content h1,
+.hero-title {
+  font-size: 5rem;
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--secondary);
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+  text-align: left;
+  margin-left: 4rem;
+  padding-left: 0;
+}
+
+.hero-content h1 span {
+  color: var(--primary);
+  display: inline;
+}
+
+.hero-content p,
+.hero-subtitle {
+  color: var(--secondary);
+  font-size: 1.25rem;
+  max-width: 550px;
+  margin-bottom: 3.5rem;
+  margin-left: 4rem;
+  margin-right: auto;
+  text-align: left;
+  padding-left: 0;
+  line-height: 1.6;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: flex-start;
+  margin-bottom: 4rem;
+  margin-left: 4rem;
+}
+
+.hero-btn {
+  padding: 1rem 2.5rem;
+  border-radius: 40px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 4rem;
+  justify-content: center;
+  margin-top: 8rem; 
+  margin-left: 30rem;
+}
+
+.stat-item h3 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--secondary);
+  text-align: left;
+}
+
+.stat-item p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0;
+  text-align: left;
+}
+
+/* Orbital Animation */
+/* Orbital Container - Positioned around center but offset */
+.orbital-container {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -8rem;        /* Pushes to right */
+  margin-right: 1rem;       /* Small gap from right edge */
+  margin-top: -5rem;
+  overflow: visible;
+}
+
+.orbital-center {
+  background: transparent;
+  width: 100px;            /* Reduced from 60px */
+  height: 100px;           /* Reduced from 60px */
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  z-index: 10;
+}
+
+.orbital-center-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 16px;
+}
+.orbital-center svg {
+  width: 60px;            /* Reduced from 45px */
+  height: 60px;           /* Reduced from 45px */
+}
+
+.orbit-rings {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;     /* ADD THIS */
+}
+
+.orbit-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid rgba(10, 29, 55, 0.10);
+}
+
+.ring-1 { width: 200px; height: 200px; }
+.ring-2 { width: 400px; height: 400px; }
+
+.orbit {
+  position: absolute;
+  overflow:visible;
+  inset: 0;
+}
+
+.orbital-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;            /* Reduced from 60px */
+  height: 60px;           /* Reduced from 60px */
+  margin: -22.5px 0 0 -22.5px;
+  transform-origin: center center;
+  animation-duration: 18s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  overflow: visible;
+}
+
+.orbital-item.clockwise {
+  animation-name: orbit-clockwise;
+}
+
+.orbital-item.anticlockwise {
+  animation-name: orbit-anticlockwise;
+}
+
+.orbital-item-inner {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  overflow: visible;
+  animation-duration: 18s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.orbital-item.clockwise .orbital-item-inner {
+  animation-name: stay-upright-cw;
+}
+
+.orbital-item.anticlockwise .orbital-item-inner {
+  animation-name: stay-upright-ccw;
+}
+
+.orbital-item-content svg {
+  width: 102px !important;     /* Smaller icons */
+  height: 100px !important;    /* Smaller icons */
+}
+
+.orbital-item-content {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;    /* Smaller radius */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background: rgba(47, 49, 70, 0.95);
+  box-shadow: 0 10px 20px rgba(10,29,55,0.2), inset 0 1px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  transition: transform 0.2s ease, background var(--transition);
+  padding: 3px;           /* Reduced padding */
+}
+
+.orbital-item-content span {
+  font-size: 0.7rem;         /* Smaller text */
+  font-weight: 700;
+  margin-top: 2px;            /* Less margin */
+  text-align: center;
+  line-height: 1;
+  width: 100%;
+  white-space: normal;
+}
+
+
+.orbital-item:hover .orbital-item-content {
+  background: var(--primary);
+  transform: scale(1.06);
+}
+
+@keyframes orbit-clockwise {
+  from { transform: rotate(calc(var(--start-angle, 0deg))) translateY(calc(-1 * var(--orbit-radius, 220px))); }
+  to { transform: rotate(calc(var(--start-angle, 0deg) + 360deg)) translateY(calc(-1 * var(--orbit-radius, 220px))); }
+}
+
+@keyframes orbit-anticlockwise {
+  from { transform: rotate(calc(var(--start-angle, 0deg))) translateY(calc(-1 * var(--orbit-radius, 220px))); }
+  to { transform: rotate(calc(var(--start-angle, 0deg) - 360deg)) translateY(calc(-1 * var(--orbit-radius, 220px))); }
+}
+
+@keyframes stay-upright-cw {
+  from { transform: rotate(calc(-1 * var(--start-angle, 0deg))); }
+  to { transform: rotate(calc(-1 * var(--start-angle, 0deg) - 360deg)); }
+}
+
+@keyframes stay-upright-ccw {
+  from { transform: rotate(calc(-1 * var(--start-angle, 0deg))); }
+  to { transform: rotate(calc(-1 * var(--start-angle, 0deg) + 360deg)); }
+}
+
+.item-1 { --start-angle: 315deg; --orbit-radius: 100px; }
+.item-2 { --start-angle: 75deg; --orbit-radius: 100px; }
+.item-3 { --start-angle: 155deg; --orbit-radius: 100px; }
+.item-4 { --start-angle: 235deg; --orbit-radius: 100px; }
+.item-5 { --start-angle: 45deg; --orbit-radius: 200px; }
+.item-6 { --start-angle: 135deg; --orbit-radius: 200px; }
+.item-7 { --start-angle: 225deg; --orbit-radius: 200px; }
+.item-8 { --start-angle: 315deg; --orbit-radius: 200px; }
+
+.review-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 29, 55, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 999;
+}
+
+.modal-content {
+  margin: 0;
+  width: min(90vw, 620px);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(10, 29, 55, 0.08);
+  color: var(--text-color);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  background: rgba(10, 29, 55, 0.16);
+}
+
+.add-review-section {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 3rem;
+  background: white;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  position: relative;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* About Us (Why Choose HomeArc) */
+.about-us-home {
+  padding: 100px 0;
+  background: white;
+}
+
+.about-us-center {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-us-center .section-title {
+  margin-bottom: 1rem;
+}
+
+.about-description {
+  margin: 0 auto;
+  max-width: 900px;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.about-features {
+  margin: 3rem auto 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  width: min(1100px, 100%);
+}
+
+.about-feature {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--bg-color);
+  text-align: center;
+}
+
+.about-feature-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: white;
+  background: var(--primary);
+  box-shadow: 0 12px 25px rgba(255, 140, 50, 0.25);
+}
+
+.about-feature-text {
+  font-weight: 700;
+  color: var(--secondary);
+  line-height: 1.5;
+  max-width: 34ch;
+}
+
+/* Services Stacking Section */
+.services-stack {
+  padding: 100px 0 40px; /* Reduced from 250px to remove excessive gap */
+  background: var(--bg-color);
+}
+
+.services-stack-scroll {
+  margin-top: 4rem;
+  position: relative;
+  width: 100%;
+  padding: 2rem 0 0;
+}
+
+.services-stack-panel {
+  position: sticky;
+  top: 110px; /* Synchronized with JS stickyTop */
+  width: min(1200px, 100%);
+  margin: 0 auto 65vh; /* 65vh gives scroll room for the stack */
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  z-index: var(--panel-z, 1);
+  transform-origin: top center;
+  will-change: transform, filter;
+  transition: filter 0.3s ease-out; /* Smooth brightness transition */
+}
+
+.services-stack-panel:last-child {
+  margin-bottom: 0; /* Remove gap after the final card in the stack */
+}
+
+.services-stack-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.services-stack-row .service-card {
+  margin-bottom: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-stack-panel {
+    transition: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .about-feature {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .about-feature-text {
+    max-width: none;
+  }
+
+  .services-stack-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Experts Marquee */
+.experts-section {
+  padding: 40px 0 100px; /* Reduced top padding to move closer to services */
+  background: white;
+  overflow: hidden;
+}
+
+.expert-card-mini {
+  width: 250px;
+  margin: 0 1rem;
+  background: var(--bg-color);
+  padding: 2.5rem;
+  border-radius: 24px;
+  text-align: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid var(--border);
+}
+
+.expert-card-mini:hover {
+  background: var(--secondary);
+  color: white;
+  transform: translateY(-10px);
+}
+
+.expert-card-mini:hover .expert-name {
+  color: white;
+}
+
+.expert-avatar {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  width: 84px;
+  height: 84px;
+  border-radius: 22px;
+  border: 2px solid rgba(255, 140, 50, 0.25);
+  background: white;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.expert-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.expert-name {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--secondary);
+  margin-bottom: 0.2rem;
+}
+
+.expert-role {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Reviews Carousel */
+.reviews-section {
+  padding: 100px 0;
+  background: var(--bg-color);
+}
+
+.reviews-carousel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 2rem 0 2.5rem;
+}
+
+.reviews-carousel-head-group {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.reviews-carousel-head-group .section-title {
+  margin: 0;
+}
+
+.reviews-carousel {
+  display: flex;
+  align-items: stretch;
+  gap: 0.75rem;
+  margin: 0 0 3rem;
+}
+
+.reviews-carousel-viewport {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.reviews-carousel-track {
+  display: grid;
+  gap: 1rem;
+  transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform;
+}
+
+.reviews-carousel-slide {
+  min-width: 0;
+}
+
+.reviews-carousel-slide .review-card-fixed {
+  height: 100%;
+  margin: 0;
+}
+
+.reviews-carousel-arrow {
+  flex: 0 0 auto;
+  width: 48px;
+  border: none;
+  border-radius: 14px;
+  background: var(--secondary);
+  color: white;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, opacity 0.2s ease, transform 0.15s ease;
+  align-self: center;
+}
+
+.reviews-carousel-arrow:hover:not(:disabled) {
+  background: var(--primary);
+  transform: scale(1.04);
+}
+
+.reviews-carousel-arrow:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.add-review-btn {
+  display: inline-flex;
+  margin: 0;
+  padding: 0.95rem 1.8rem;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Reviews Grid Layout */
+.reviews-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin: 4rem 0;
+}
+
+.review-card-fixed {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.review-card-fixed:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary);
+}
+
+.review-stars {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.review-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-style: italic;
+  color: var(--secondary);
+  margin-bottom: 1.5rem;
+}
+
+.review-author {
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.reviews-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-stat-circle {
+  width: 160px;
+  height: 160px;
+  background: var(--secondary);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  box-shadow: 0 15px 35px rgba(10, 29, 55, 0.2);
+  border: 4px solid var(--primary);
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Home reviews layout helpers */
+.reviews-grid-layout--home {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.reviews-group--home {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.add-review-title {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.add-review-textarea {
+  height: 120px;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  resize: none;
+}
+
+.add-review-submit {
+  width: 100%;
+}
+
+/* Add Review Form (Inline) */
+.add-review-section {
+  max-width: 600px;
+  margin: 4rem auto 0;
+  padding: 3rem;
+  background: white;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 60px 2rem;
+  }
+  
+  .hero-title,
+  .hero-subtitle,
+  .hero-cta,
+  .hero-stats {
+    margin-left: 0 !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  .hero-title {
+    font-size: 3.5rem !important;
+  }
+  
+  .hero-subtitle {
+    margin: 0 auto 3rem !important;
+  }
+
+  .hero-visual {
+    margin-top: 2rem;
+    overflow: visible;
+    position: relative;
+  }
+
+  .hero-stats {
+    margin-top: 3rem !important;
+    gap: 2rem !important;
+  }
+
+  .orbital-container {
+    margin: 40px auto 0 !important;
+    width: 300px !important;
+    height: 300px !important;
+  }
+
+  .ring-1 { width: 140px; height: 140px; }
+  .ring-2 { width: 280px; height: 280px; }
+
+  .item-1, .item-2, .item-3, .item-4 { --orbit-radius: 70px !important; }
+  .item-5, .item-6, .item-7, .item-8 { --orbit-radius: 140px !important; }
+
+  .orbital-item {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .orbital-item-content svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .orbital-item-content span {
+    font-size: 0.6rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 0 40px;
+  }
+  .hero-title {
+    font-size: 2.8rem !important;
+  }
+  .hero-stats {
+    flex-wrap: wrap;
+    gap: 1.5rem !important;
+  }
+  .stat-item h3 {
+    font-size: 1.8rem !important;
+    text-align: center !important;
+  }
+  .stat-item p {
+    text-align: center !important;
+  }
+}

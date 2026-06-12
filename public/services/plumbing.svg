@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#3a8dde"/>
+      <stop offset="100%" stop-color="#1e5f9d"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#g)"/>
+  <path d="M250 520v-240l90-90 80 80-90 90v240H250z" fill="#fff" opacity="0.9"/>
+  <path d="M350 190l120 120" stroke="#fff" stroke-width="40" stroke-linecap="round"/>
+  <path d="M360 530l160-160" stroke="#fff" stroke-width="40" stroke-linecap="round"/>
+  <text x="400" y="680" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="72">Plumbing</text>
+</svg>

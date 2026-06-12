@@ -1,0 +1,154 @@
+.footer {
+  background: #050505;
+  color: white;
+  padding: 100px 0 30px;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Plexus/Connectivity Background Effect */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(0, 191, 255, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255, 140, 50, 0.03) 0%, transparent 40%);
+  z-index: 1;
+}
+
+/* Connectivity Dots/Lines Pattern */
+.footer-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.footer .container {
+  position: relative;
+  z-index: 2;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 4rem;
+  margin-bottom: 80px;
+}
+
+.footer-brand h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.footer-brand h2 span {
+  color: var(--primary);
+}
+
+.footer-brand p {
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.footer-group h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-list li {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.footer-list li a:hover {
+  color: white;
+  transform: translateX(5px);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.contact-icon {
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.9rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255,255,255,0.08);
+  font-size: 1.1rem;
+  transition: var(--transition);
+}
+
+.footer-socials a:hover {
+  color: white;
+  transform: scale(1.1);
+  background: rgba(255,255,255,0.14);
+}
+
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+}

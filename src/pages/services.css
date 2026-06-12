@@ -1,0 +1,28 @@
+.services-subtitle {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 600px;
+  margin: -2rem auto 4rem;
+  font-size: 1.1rem;
+}
+
+.services-grid-3,
+.services-grid-full {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 992px) {
+  .services-grid-3,
+  .services-grid-full {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .services-grid-3,
+  .services-grid-full {
+    grid-template-columns: 1fr;
+  }
+}

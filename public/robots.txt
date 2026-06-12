@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /preferences
+Disallow: /cookie
+
+Sitemap: https://homearc-house-services.vercel.app/sitemap.xml

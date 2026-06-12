@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#55c7f2"/>
+      <stop offset="100%" stop-color="#1e8fc1"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#g)"/>
+  <rect x="220" y="240" width="360" height="260" rx="40" fill="#fff" opacity="0.9"/>
+  <rect x="280" y="320" width="240" height="40" rx="20" fill="#1e8fc1"/>
+  <path d="M220 520c50-40 90-120 170-120s120 80 170 120" stroke="#fff" stroke-width="32" fill="none" stroke-linecap="round"/>
+  <text x="400" y="700" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="72">AC Repair</text>
+</svg>
